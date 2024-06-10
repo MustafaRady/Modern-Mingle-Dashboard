@@ -1,0 +1,159 @@
+/* src/app/sidebar/sidebar.component.css */
+.sidebar {
+  padding: 20px;
+}
+
+
+.sidebar a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+.sidebar li{
+    list-style-type: none;
+}
+
+.title{
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc; /* Change color, width, or style as needed */
+    margin: 20px 0; /* Adjust spacing above and below the line */
+  }
+.links{
+    display: flex;
+    flex-direction: column;
+
+}
+.link-group{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.link-icon{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-icon img{
+    width: 25px;
+    height: 25px;
+}
+
+.link-title{
+    width: 70%;
+    font-size: 1.2rem;
+}
+
+.email{
+    word-wrap: break-word; /* Allow wrapping of long words */
+    overflow-wrap: break-word; /* Older property for wrapping long words */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.email div {
+    flex-wrap: wrap;
+    width: 100%; /* Make sure the email div takes the full width of the sidebar */
+    word-break: break-all; /* Break long words to prevent overflow */
+  }
+
+  .email-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+  }
+
+  /* Logout */
+
+  .logout {
+    
+    width: 100%;
+    margin:10px auto;
+  }
+
+  .Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: 0.4s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #3498db, #e74c3c);
+  }
+  
+  .sign {
+    width: 100%;
+    transition-duration: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: white;
+  }
+  
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: #ecf0f1;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: 0.4s;
+  }
+  
+  .Btn:hover {
+    width: 150px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    background: linear-gradient(to right, #3498db, #e74c3c);
+  }
+  
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: 0.4s;
+    padding-left: 12px;
+  }
+  
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: 0.4s;
+    padding-right: 10px;
+  }
+  
+  .Btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  

@@ -1,0 +1,12 @@
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
+<div class="delete" *ngIf="!isLoading">
+    <h1>Delete Product</h1>
+    <p>Are you sure you want to delete this product?</p>
+    <div class="buttons">
+        <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
+        <button mat-raised-button color="primary" (click)="onClose()">Cancel</button>
+    </div>
+
+</div>
