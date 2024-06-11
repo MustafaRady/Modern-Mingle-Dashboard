@@ -2,6 +2,9 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
+  .table-container{
+    width: 100%;
+  }
   .table{
       width: 100%;
       overflow-x: auto;
