@@ -3,7 +3,10 @@ import {AngularFirestore} from '@angular/fire/compat/firestore'
 import { Observable, from } from 'rxjs';
 import { Product } from '../model/product';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { switchMap,of } from 'rxjs';
+import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,10 +14,21 @@ export class ProductService {
 
   constructor(
     private angularFirestore:AngularFirestore,
-    private storage:AngularFireStorage
+    private storage:AngularFireStorage,
+    private afAuth: AngularFireAuth,
+    private router:Router
   ) {
-    
+    this.afAuth.authState.subscribe(
+      user=>{
+        if(!user){
+          this.router.navigate(['/dashboard'])
+        
+      }
+    }
+    )
   }
+
+
 
   getProducts():Observable<any[]>{
     return this.angularFirestore.collection('garments').valueChanges({idField:'id'})
