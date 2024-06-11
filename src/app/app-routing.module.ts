@@ -10,6 +10,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/products', pathMatch: 'full' }, // Default route
   {path:'users',component:ComingSoonComponent,canActivate:[AuthGuard],data: { requiresLogin: true } },
   {path:'products',component:ProductsComponent,canActivate:[AuthGuard],data: { requiresLogin: true }},
   {path:'dashboard',component:ComingSoonComponent,canActivate:[AuthGuard],data: { requiresLogin: true }},
