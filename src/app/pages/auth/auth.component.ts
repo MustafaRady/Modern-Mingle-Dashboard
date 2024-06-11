@@ -14,7 +14,7 @@ export class AuthComponent implements OnInit {
   registerForm: FormGroup;
   error:string = '';
 
-  register: boolean = false;
+ 
   constructor(
     private fb: FormBuilder,
     private authService:AuthService,
@@ -52,17 +52,7 @@ export class AuthComponent implements OnInit {
     }
   }
 
-  onRegister(): void {
-    if (this.registerForm.valid) {
-      const {email,password} = this.registerForm.value;
-      this.authService.register(email,password)
-    }
-  }
-
-  toggleAuth(){
-    this.register = !this.register
-  }
-
+  
   handleError(error:any){
     const errorMessage = this.getErrorMessage(error.code)
     this.error = errorMessage

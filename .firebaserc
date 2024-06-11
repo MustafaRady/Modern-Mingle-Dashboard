@@ -1,1 +1,5 @@
-{}
+{
+  "projects": {
+    "default": "angular-guide-1cad4"
+  }
+}

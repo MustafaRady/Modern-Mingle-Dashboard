@@ -21,6 +21,9 @@
 
 @media screen and (max-width: 768px){
     .sidebar{
-        display: none;
+        width: 100%;
+    }
+    .container{
+        flex-direction: column;
     }
 }

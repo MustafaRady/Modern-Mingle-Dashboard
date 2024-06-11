@@ -98,7 +98,20 @@
     margin: 20px;
   }
 
+  @media screen and (max-width: 768px){
+    .headerGroup{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 20px;
+      
+    }
+
+    
+  }
+
   .actions{
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -106,9 +119,28 @@
     align-items: center;
   }
 
+  @media screen and (max-width: 768px){
+    .actions{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+    
+  }
+
   .table-container {
     display: flex;
     flex-direction: column;
+    overflow-x: scroll;
+  }
+
+  @media screen and (max-width: 768px){
+    .table-container {
+      overflow-x: scroll;
+    }
+    
   }
   
   .pagination {

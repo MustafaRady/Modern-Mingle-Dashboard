@@ -1,5 +1,5 @@
 <div class="auth-container">
-    <div class="auth-section" *ngIf="!register">
+    <div class="auth-section" >
       <h2>Login</h2>
       <form [formGroup]="loginForm" (submit)="onLogin()">
         <div class="form-group">
@@ -13,34 +13,10 @@
         <div *ngIf="error" class="error">
             {{ error }}
           </div>
-        <div class="change" >Don't have an account ? <span (click)="toggleAuth()" class="auth"> Register</span></div>
 
         <button type="submit" class="btn">Login</button>
       </form>
     </div>
   
-    <div class="auth-section" *ngIf="register">
-      <h2>Register</h2>
-      <form [formGroup]="registerForm" (submit)="onRegister()">
-        <div class="form-group">
-          <label for="registerName">Name:</label>
-          <input type="text" id="registerName" formControlName="name" required>
-        </div>
-        <div class="form-group">
-          <label for="registerEmail">Email:</label>
-          <input type="email" id="registerEmail" formControlName="email" required>
-        </div>
-        <div class="form-group">
-          <label for="registerPassword">Password:</label>
-          <input type="password" id="registerPassword" formControlName="password" required>
-        </div>
-        <div *ngIf="error" class="error">
-            {{ error }}
-        </div>
-        <div class="change" >Already have an account ? <span (click)="toggleAuth()" class="auth"> Login</span></div>
-
-        <button type="submit" class="btn">Register</button>
-      </form>
-    </div>
   </div>
   
