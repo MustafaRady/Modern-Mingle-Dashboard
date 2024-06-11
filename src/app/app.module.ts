@@ -26,6 +26,7 @@ import { DeleteProductComponent } from './components/delete-product/delete-produ
 import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { AuthComponent } from './pages/auth/auth.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { AuthComponent } from './pages/auth/auth.component';
     DeleteProductComponent,
     ComingSoonComponent,
     AuthComponent,
+    NotFoundPageComponent,
   ],
 
   imports: [

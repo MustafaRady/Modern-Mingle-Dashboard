@@ -6,6 +6,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 import { AuthGuard } from './auth.guard';
 import { AuthComponent } from './pages/auth/auth.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'analytics',component:ComingSoonComponent,canActivate:[AuthGuard],data: { requiresLogin: true }},
   {path:'promotions',component:ComingSoonComponent,canActivate:[AuthGuard],data: { requiresLogin: true }},
   {path:'login',component:AuthComponent,canActivate:[AuthGuard],data: { requiresLogin: false }},
+  {path:'**',component:NotFoundPageComponent}
 ];
 
 @NgModule({
