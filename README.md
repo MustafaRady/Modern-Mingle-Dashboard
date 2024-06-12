@@ -1,27 +1,20 @@
-# Dashboard
+# Clothing Store Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
+This repository contains an Angular-based dashboard for managing a clothing store.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Product Management**: Add, edit, and delete products with detailed information.
+- **Image Upload**: Upload product images to Firebase Storage and display them in the dashboard.
+- **Dynamic Forms**: Use reactive forms to handle product data input and validation.
+- **Angular Material Integration**: Leverage Angular Material components for a modern UI/UX.
+- **Firebase Integration**: Store product data and images in Firebase Firestore and Firebase Storage.
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular: Framework for building the dashboard.
+- Angular Material: UI component library for Angular.
+- Firebase: Backend platform for storing product data and images.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  
