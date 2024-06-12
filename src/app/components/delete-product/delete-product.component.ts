@@ -8,7 +8,7 @@ import { ProductService } from '../../service/product.service';
   styleUrl: './delete-product.component.css'
 })
 export class DeleteProductComponent {
-
+  showPopup = false;
   isLoading: boolean = false;
   constructor(
     private dialogRef:MatDialogRef<DeleteProductComponent>,
@@ -17,20 +17,26 @@ export class DeleteProductComponent {
   ){}
 
   onDelete(){
-    this.isLoading = true;
-    this.productService.deleteImage(this.data.imageUrl)
-    this.productService.deleteProduct(this.data).subscribe(
-      data=>{
-        this.isLoading = false;
-        this.dialogRef.close();
-      },error=>{
-        this.isLoading=false;
-        console.log(error)
-      }
-    )
+    this.isLoading = false;
+    this.showPopup = true;
+
+    // this.productService.deleteImage(this.data.imageUrl)
+    // this.productService.deleteProduct(this.data).subscribe(
+    //   data=>{
+    //     this.isLoading = false;
+    //     this.dialogRef.close();
+    //   },error=>{
+    //     this.isLoading=false;
+    //     console.log(error)
+    //   }
+    // )
   }
 
   onClose(){
     this.dialogRef.close()
+  }
+
+  closePopup(){
+    this.showPopup = false;
   }
 }

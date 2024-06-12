@@ -2,6 +2,20 @@
 <div>
     <app-loading *ngIf="isLoading"></app-loading>
 </div>
+
+<div class="popup-container" *ngIf="showPopup">
+  <div class="popup">
+    <div class="popup-header">
+      <span>This Feature is available  </span>
+      <button (click)="closePopup()">Close</button>
+    </div>
+    <div class="popup-body">
+      <h4>Please note that this feature is not available right now</h4>
+      <p>{{ popupMessage }}</p>
+    </div>
+  </div>
+</div>
+
 <div *ngIf="!isLoading" >
     <h1 class="title">Edit Product</h1>
     <form [formGroup]="productForm" class="form" (submit)="onSubmit()" >

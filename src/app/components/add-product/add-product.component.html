@@ -1,7 +1,22 @@
 
+<div class="popup-container" *ngIf="showPopup">
+  <div class="popup">
+    <div class="popup-header">
+      <span>This Feature is available  </span>
+      <button (click)="closePopup()">Close</button>
+    </div>
+    <div class="popup-body">
+      <h4>Please note that this feature is not available right now</h4>
+      <p>{{ popupMessage }}</p>
+    </div>
+  </div>
+</div>
+
 <div class="" *ngIf="isLoading">
   <app-loading></app-loading>
 </div>
+
+
 
 
 <div *ngIf="!isLoading">
@@ -92,8 +107,9 @@
       <button  type="submit">Add</button>
       <button class="danger" type="button" (click)="close()" >Close</button>
     </div>
-    
 </form>
+
+
 
 </div>
 

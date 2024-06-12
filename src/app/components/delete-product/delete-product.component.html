@@ -1,6 +1,20 @@
 <div *ngIf="isLoading">
     <app-loading></app-loading>
 </div>
+
+<div class="popup-container" *ngIf="showPopup">
+    <div class="popup">
+      <div class="popup-header">
+        <span>This Feature is available  </span>
+        <button (click)="closePopup()">Close</button>
+      </div>
+      <div class="popup-body">
+        <h4>Please note that this feature is not available right now</h4>
+        <p>{{ popupMessage }}</p>
+      </div>
+    </div>
+  </div>
+  
 <div class="delete" *ngIf="!isLoading">
     <h1>Delete Product</h1>
     <p>Are you sure you want to delete this product?</p>

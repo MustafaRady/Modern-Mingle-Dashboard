@@ -14,6 +14,8 @@ import { createProductForm } from '../../service/formBuilder/formbuilder';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
+
+  showPopup: boolean = false;
   productForm: FormGroup;
   selectedFile: File | null = null;
   imageUrl: string | ArrayBuffer | null = null;
@@ -81,42 +83,51 @@ export class AddProductComponent implements OnInit {
   
 
   onSubmit() {
-    this.isLoading = true;
-    this.uploadImage().then((imageUrl: string) => {
-      const formValue = this.productForm.value;
-      formValue.sizes = formValue.sizes.map((checked: boolean, i: number) => checked ? this.availableSizes[i] : null).filter((value: string | null) => value !== null);
-      formValue.materials = formValue.materials.filter((material: string) => material !== '');
-
-      let product: Product = {
-        name: formValue.name,
-        price: formValue.price,
-        description: formValue.description,
-        subDescription: formValue.subDescription,
-        category: formValue.category,
-        sizes: formValue.sizes,
-        colors: formValue.colors,
-        materials: formValue.materials,
-        brand: formValue.brand,
-        inStock: formValue.inStock,
-        rating: formValue.rating,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        imageUrl: imageUrl // Add the image URL to the product
-      };
-
-      this.productService.addProduct(product).subscribe((res) => {
-        this.isLoading=false;
-        this.dialogRef.close();
-      });
-    }).catch(err => {
-      console.error(err);
+    this.showPopup = true ; 
+      
       this.isLoading=false;
-    });
+    // this.isLoading = true;
+    // this.uploadImage().then((imageUrl: string) => {
+    //   const formValue = this.productForm.value;
+    //   formValue.sizes = formValue.sizes.map((checked: boolean, i: number) => checked ? this.availableSizes[i] : null).filter((value: string | null) => value !== null);
+    //   formValue.materials = formValue.materials.filter((material: string) => material !== '');
+
+    //   let product: Product = {
+    //     name: formValue.name,
+    //     price: formValue.price,
+    //     description: formValue.description,
+    //     subDescription: formValue.subDescription,
+    //     category: formValue.category,
+    //     sizes: formValue.sizes,
+    //     colors: formValue.colors,
+    //     materials: formValue.materials,
+    //     brand: formValue.brand,
+    //     inStock: formValue.inStock,
+    //     rating: formValue.rating,
+    //     createdAt: new Date(),
+    //     updatedAt: new Date(),
+    //     imageUrl: imageUrl // Add the image URL to the product
+    //   };
+
+      
+      // this.productService.addProduct(product).subscribe((res) => {
+      //   this.isLoading=false;
+      //   this.dialogRef.close();
+      // });
+    // }).catch(err => {
+    //   console.error(err);
+    //   this.isLoading=false;
+    // });
   }
 
   close() {
     this.dialogRef.close();
   }
+
+  closePopup() {
+    this.showPopup = false;
+  }
+
 
   addSizeControls() {
     this.availableSizes.forEach(() => {

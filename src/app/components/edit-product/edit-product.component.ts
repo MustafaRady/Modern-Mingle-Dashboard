@@ -14,6 +14,7 @@ import { createProductForm } from '../../service/formBuilder/formbuilder';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
+  showPopup = false;
   productForm: FormGroup;
   selectedFile: File | null = null;
   previousImageUrl: string;
@@ -90,80 +91,85 @@ export class EditProductComponent implements OnInit {
   
 
   onSubmit() {
-    this.isLoading = true;
-    const formValue = this.productForm.value;
-    formValue.sizes = formValue.sizes.map((checked: boolean, i: number) => checked ? this.availableSizes[i] : null).filter((value: string | null) => value !== null);
-    formValue.materials = formValue.materials.filter((material: string) => material !== '');
+    this.isLoading = false;
+    this.showPopup = true;
+    
+    // const formValue = this.productForm.value;
+    // formValue.sizes = formValue.sizes.map((checked: boolean, i: number) => checked ? this.availableSizes[i] : null).filter((value: string | null) => value !== null);
+    // formValue.materials = formValue.materials.filter((material: string) => material !== '');
 
-    let previousImageUrl = this.productForm.get('image')?.value;
-    console.log(previousImageUrl)
+    // let previousImageUrl = this.productForm.get('image')?.value;
+    // console.log(previousImageUrl)
   
 
-    if(
-        this.previousImageUrl != this.productForm.get('image')?.value
+    // if(
+    //     this.previousImageUrl != this.productForm.get('image')?.value
         
-    ){
+    // ){
       
-      this.productService.deleteImage(this.previousImageUrl);
-      this.uploadImage().then((imageUrl: string) => {
+      
+    //   this.productService.deleteImage(this.previousImageUrl);
+    //   this.uploadImage().then((imageUrl: string) => {
         
-        let product: Product = {
-          name: formValue.name,
-          price: formValue.price,
-          description: formValue.description,
-          subDescription: formValue.subDescription,
-          category: formValue.category,
-          sizes: formValue.sizes,
-          colors: formValue.colors,
-          materials: formValue.materials,
-          brand: formValue.brand,
-          inStock: formValue.inStock,
-          rating: formValue.rating,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          imageUrl: imageUrl // Add the image URL to the product
-        };
+    //     let product: Product = {
+    //       name: formValue.name,
+    //       price: formValue.price,
+    //       description: formValue.description,
+    //       subDescription: formValue.subDescription,
+    //       category: formValue.category,
+    //       sizes: formValue.sizes,
+    //       colors: formValue.colors,
+    //       materials: formValue.materials,
+    //       brand: formValue.brand,
+    //       inStock: formValue.inStock,
+    //       rating: formValue.rating,
+    //       createdAt: new Date(),
+    //       updatedAt: new Date(),
+    //       imageUrl: imageUrl // Add the image URL to the product
+    //     };
 
-        const productDocRef = this.firestore.doc(`garments/${this.product.id}`);
-        productDocRef.update(product).then(() => {
-          console.log('Product updated successfully');
-          this.dialogRef.close();
-        }).catch(err => {
-          console.error('Error updating product:', err);
-        });
-      }).catch(err => {
-        console.error(err);
-      });
-    }
-    else{
-      let product: Product = {
-        name: formValue.name,
-        price: formValue.price,
-        description: formValue.description,
-        subDescription: formValue.subDescription,
-        category: formValue.category,
-        sizes: formValue.sizes,
-        colors: formValue.colors,
-        materials: formValue.materials,
-        brand: formValue.brand,
-        inStock: formValue.inStock,
-        rating: formValue.rating,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        imageUrl: this.previousImageUrl // Add the image URL to the product
-      };
+    //     const productDocRef = this.firestore.doc(`garments/${this.product.id}`);
+    //     productDocRef.update(product).then(() => {
+    //       console.log('Product updated successfully');
+    //       this.isLoading=false
+    //       this.dialogRef.close();
+    //     }).catch(err => {
+    //       this.isLoading=false
+    //       console.error('Error updating product:', err);
+    //     });
+    //   }).catch(err => {
+    //     console.error(err);
+    //   });
+    // }
+    // else{
+    //   let product: Product = {
+    //     name: formValue.name,
+    //     price: formValue.price,
+    //     description: formValue.description,
+    //     subDescription: formValue.subDescription,
+    //     category: formValue.category,
+    //     sizes: formValue.sizes,
+    //     colors: formValue.colors,
+    //     materials: formValue.materials,
+    //     brand: formValue.brand,
+    //     inStock: formValue.inStock,
+    //     rating: formValue.rating,
+    //     createdAt: new Date(),
+    //     updatedAt: new Date(),
+    //     imageUrl: this.previousImageUrl // Add the image URL to the product
+    //   };
 
-      const productDocRef = this.firestore.doc(`garments/${this.product.id}`);
-      productDocRef.update(product).then(() => {
-        this.isLoading=false
-        console.log('Product updated successfully');
-        this.dialogRef.close();
-      }).catch(err => {
-        this.isLoading=false
-        console.error('Error updating product:', err);
-      });
-    }
-    ;
+    //   const productDocRef = this.firestore.doc(`garments/${this.product.id}`);
+    //   productDocRef.update(product).then(() => {
+    //     this.isLoading=false
+    //     console.log('Product updated successfully');
+    //     this.dialogRef.close();
+    //   }).catch(err => {
+    //     this.isLoading=false
+    //     console.error('Error updating product:', err);
+    //   });
+    // }
+    // ;
       
       
   }
@@ -171,6 +177,10 @@ export class EditProductComponent implements OnInit {
 
   close() {
     this.dialogRef.close();
+  }
+
+  closePopup(){
+    this.showPopup = false;
   }
 
   
