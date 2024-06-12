@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './pages/users/users.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
-// import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './auth.guard';
 import { AuthComponent } from './pages/auth/auth.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
