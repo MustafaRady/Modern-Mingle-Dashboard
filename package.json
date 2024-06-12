@@ -23,7 +23,7 @@
     "@angular/router": "^17.3.11",
     "firebase": "^10.0.0",
     "rxjs": "~7.8.1",
-    "zone.js": "~0.13.0",
+    "zone.js": "~0.14.0",
 
     
     "@swimlane/ngx-datatable": "^20.1.0",
